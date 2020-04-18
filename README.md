@@ -3,7 +3,7 @@
 # Introduction
 This is an alternative for Spring Cloud Config which has its own client and server. This project is for the client component of the config server.
 
-The server component is using database as the configuration source. Please refer to server project more details on server features.
+The server component is using database as the configuration source. Please refer to [server project](https://github.com/melangad/spring-config-rest-server) more details on server features.
 
 # Client
 Client can be easily integrated with any Spring Boot project. Client provides following features at the moment.
