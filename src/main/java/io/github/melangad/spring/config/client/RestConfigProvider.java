@@ -20,6 +20,7 @@ public class RestConfigProvider {
 	private RestTemplate restTemplate;
 	private Map<String, Object> configMap = new HashMap<String, Object>();
 	private String configURI;
+	private String label;
 
 	@Getter
 	private Date lastUpdateTime = null;
@@ -27,9 +28,10 @@ public class RestConfigProvider {
 	@Getter
 	private int currentVersion = 0;
 
-	public RestConfigProvider(RestTemplate restTemplate, String configURI) {
+	public RestConfigProvider(RestTemplate restTemplate, final String configURI, final String label) {
 		this.restTemplate = restTemplate;
 		this.configURI = configURI;
+		this.label = label;
 		this.loadConfigCache();
 	}
 
@@ -48,7 +50,8 @@ public class RestConfigProvider {
 	private void loadConfigCache() {
 		log.debug("Loading Config From Remote Server");
 		try {
-			ConfigDetailDAO response = this.restTemplate.getForObject(new URI(this.configURI), ConfigDetailDAO.class);
+			final URI uri = new URI(this.configURI + "/" + label);
+			ConfigDetailDAO response = this.restTemplate.getForObject(uri, ConfigDetailDAO.class);
 			if (null != response && null != response.getConfigData()) {
 				this.currentVersion = response.getVersion();
 
