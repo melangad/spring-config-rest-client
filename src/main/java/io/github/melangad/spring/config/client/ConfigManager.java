@@ -9,6 +9,11 @@ public class ConfigManager {
 
 	private RestClientPropertySource propertySource;
 
+	/**
+	 * Default constructor
+	 * 
+	 * @param environment Spring Environment
+	 */
 	public ConfigManager(Environment environment) {
 		AbstractEnvironment env = (AbstractEnvironment) environment;
 		if (env.getPropertySources().contains(Constants.RESTTEMPLATE_PROPERTY_SOURCE)) {
@@ -17,6 +22,11 @@ public class ConfigManager {
 		}
 	}
 
+	/**
+	 * Get current configuration version on the client side
+	 * 
+	 * @return Current configuration version
+	 */
 	public int getCurrentConfigVersion() {
 		if (null != this.propertySource) {
 			return this.propertySource.getCurrentConfigVersion();
@@ -25,6 +35,11 @@ public class ConfigManager {
 		}
 	}
 
+	/**
+	 * Get last updated time of the configuration on client side
+	 * 
+	 * @return Last update time of the configuration
+	 */
 	public Date getLastConfigUpdateTime() {
 		if (null != this.propertySource) {
 			return this.propertySource.getLastConfigUpdateTime();
@@ -32,7 +47,17 @@ public class ConfigManager {
 			return null;
 		}
 	}
-	
+
+	/**
+	 * Provide current client configuration state to the server
+	 * 
+	 * @param clientId Unique client ID
+	 */
+	public void provideFeedback(final String clientId) {
+		if (null != this.propertySource) {
+			this.propertySource.provideClientFeedback(clientId);
+		}
+	}
 	
 
 }

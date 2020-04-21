@@ -36,5 +36,9 @@ public class RestClientPropertySource extends EnumerablePropertySource<RestConfi
 	public Date getLastConfigUpdateTime() {
 		return this.restConfigProvider.getLastUpdateTime();
 	}
+	
+	public void provideClientFeedback(final String clientId) {
+		this.restConfigProvider.provideClientfeedback(clientId);
+	}
 
 }
