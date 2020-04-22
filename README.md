@@ -42,18 +42,27 @@ public ConfigReportEndpoint configReportEndpoint() {
 ```
 
 ## Configurations
-You csn enable or disable Config Client usign following property
+You can enable or disable Config Client using following property
 ```
 io.github.melangad.spring.config.remote.enable=true
 ```
 
 Use following property to set the config server URI
 SERVER_HOST - Config Server Host & port
-APPLICATION_ID - Unique application ID for the client
-
-Configurations are stored in the server against a unique Application ID and you need to provide the relevant application ID as part of the URI
 ```
-io.github.melangad.spring.config.remote.url=http://SERVER_HOST/config/APPLICATION_ID
+io.github.melangad.spring.config.server.url=http://SERVER_HOST/config
 ```
 
-
+Configurations are stored in the server against a unique label and you need to provide the label in the configurations.
+```
+io.github.melangad.spring.config.label=LABEL
+```
+If server has feedback endpoint and if you need to provide state of the client configuration as a feedback to the server, set feedback endpoint.
+```
+io.github.melangad.spring.config.server.feedbackur=http://SERVER_HOST/config/feedback
+```
+## Config Manage
+Config Manager provides several APIs to query configuration state.
+* Current Configuration version
+* Last update time of the configuration on client side
+* Method to invoke feedback call. You need to provide a unique client ID on invoking feedback
