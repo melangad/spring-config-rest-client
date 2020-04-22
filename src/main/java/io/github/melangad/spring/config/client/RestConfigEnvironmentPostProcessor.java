@@ -29,11 +29,12 @@ public class RestConfigEnvironmentPostProcessor implements EnvironmentPostProces
 
 		final String configUrl = environment.getProperty(Constants.CONFIG_SERVER_URL_PROPERTY);
 		final String label = environment.getProperty(Constants.CONFIG_LABEL);
-		
+		final String feebackURI = environment.getProperty(Constants.CONFIG_SERVER_FEEDBACK_URL_PROPERTY);
+
 		Assert.notNull(configUrl, "Invalid Config Host URI. Please set " + Constants.CONFIG_SERVER_URL_PROPERTY);
 		Assert.notNull(label, "Invalid Label. Please set " + Constants.CONFIG_LABEL);
 
-		final RestConfigProvider configProvider = new RestConfigProvider(restTemplate, configUrl, label);
+		final RestConfigProvider configProvider = new RestConfigProvider(restTemplate, configUrl, feebackURI, label);
 
 		try {
 			final MutablePropertySources sources = environment.getPropertySources();
