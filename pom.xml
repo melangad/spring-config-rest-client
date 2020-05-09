@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.melangad</groupId>
 	<artifactId>spring-config-rest-client</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1-SNAPSHOT</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Client implementation for alternative implementation of Spring Cloud Config server</description>
@@ -27,7 +27,7 @@
 		<connection>scm:git:git://github.com/melangad/spring-config-rest-client.git</connection>
 		<developerConnection>scm:git:ssh://github.com:melangad/spring-config-rest-client.git</developerConnection>
 		<url>http://github.com/melangad/spring-config-rest-client/tree/master</url>
-		<tag>spring-config-rest-client-0.1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
