@@ -61,9 +61,9 @@ public class RestConfigProvider {
 			if (null != response && null != response.getConfigData()) {
 				this.currentVersion = response.getVersion();
 
-				Map<String, ConfigMetaDAO> configMap = response.getConfigData();
-				configMap.forEach((k, v) -> {
-					this.configMap.put(k, v.getValue());
+				List<ConfigMetaDAO> configList = response.getConfigData();
+				configList.forEach(v -> {
+					this.configMap.put(v.getKey(), v.getValue());
 				});
 
 				this.lastUpdateTime = new Date();

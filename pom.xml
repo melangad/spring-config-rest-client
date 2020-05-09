@@ -1,8 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.melangad</groupId>
 	<artifactId>spring-config-rest-client</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Client implementation for alternative implementation of Spring Cloud Config server</description>
@@ -27,8 +29,8 @@
 		<connection>scm:git:git://github.com/melangad/spring-config-rest-client.git</connection>
 		<developerConnection>scm:git:ssh://github.com:melangad/spring-config-rest-client.git</developerConnection>
 		<url>http://github.com/melangad/spring-config-rest-client/tree/master</url>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 
 	<distributionManagement>
 		<snapshotRepository>
@@ -46,6 +48,7 @@
 
 	<properties>
 		<spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+		<eactor.spring.version>1.0.1.RELEASE</eactor.spring.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.deploy.plugin>2.8.2</maven.deploy.plugin>
@@ -73,6 +76,15 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectreactor</groupId>
+			<artifactId>reactor-spring</artifactId>
+			<version>${eactor.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
